@@ -14,6 +14,8 @@
 - [ ] Adding User to the project
 - [ ] User can buy a robot
 - [ ] Upgrade session flash data into pop up view like
+- [ ] Can upload images in robot
+- [ ] in show robot if we hover the image pop up the image in larger version
 
 # Bugs
 - Robot card view is broken when the screen get smaller (Consider creating custom CSS for it)
