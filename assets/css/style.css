@@ -1,0 +1,22 @@
+
+footer {
+    background-color: aquamarine;
+}
+
+.card {
+    line-height: 20%;;
+}
+
+.column {
+    border: 1px solid gray;
+}
+
+.hero {
+    margin-bottom: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1.5em;
+}
