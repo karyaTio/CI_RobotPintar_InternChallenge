@@ -3,7 +3,24 @@ class Admin extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        
         $this->load->model('admin_model');
+        $this->load->model('user_model');
+        $this->load->model('transaction_model');
+    }
+
+    function overview(){
+        $data['title'] = "This is overview page";
+
+        $data['stocks'] = $this->admin_model->get_out_of_stock();
+        $data['total_user'] = $this->user_model->get_total_user();
+        $data['top_sale'] = $this->transaction_model->get_top_sale();
+        $data['montly_profit'] = $this->transaction_model->get_montly_profit();
+        
+
+        $this->load->view('templates/admin/header');
+        $this->load->view('admin/overview', $data);
+        $this->load->view('templates/admin/footer');
     }
 
     function register(){

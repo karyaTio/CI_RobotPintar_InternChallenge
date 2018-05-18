@@ -18,6 +18,8 @@ $route['brand'] = 'brand/index';
 $route['brand/create'] = 'brand/create';
 
 // Admin
+$route['admin/overview'] = 'admin/overview';
+$route['admin/data'] = 'admin/data';
 $route['admin/register'] = 'admin/register';
 $route['admin/login'] = 'admin/login';
 $route['admin/logout'] = 'admin/logout';

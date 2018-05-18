@@ -1,10 +1,7 @@
 
+
 footer {
     background-color: aquamarine;
-}
-
-.card {
-    line-height: 20%;;
 }
 
 .column {
@@ -18,5 +15,11 @@ footer {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1.5em;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.5em;
 }

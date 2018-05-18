@@ -4,7 +4,7 @@
 
 # Todo
 - [ ] Creating Dashboard view for admin
-- [ ] Design UI Structure in the papper
+- [x] Design UI Structure in the papper
 - [x] Chose CSS framework
 - [x] Implement chossed framework to the current project
 - [x] Make the project navigateable
@@ -16,6 +16,8 @@
 - [ ] Upgrade session flash data into pop up view like
 - [ ] Can upload images in robot
 - [ ] in show robot if we hover the image pop up the image in larger version
+- [ ] Make the script more readable
+- [ ] Convert the language to english only
 
 # Bugs
 - Robot card view is broken when the screen get smaller (Consider creating custom CSS for it)

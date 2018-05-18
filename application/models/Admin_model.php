@@ -25,6 +25,13 @@ class Admin_model extends CI_Model {
         }
     }
 
+    public function get_out_of_stock(){
+        $this->db->where('stok <=', '0');
+        $query = $this->db->get('daftar_robot');
+
+        return $query->result_array();
+    }
+
     // Check if email exists
     public function check_email_exists($email){
         $query = $this->db->get_where('admin', array('email' => $email));
