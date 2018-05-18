@@ -1,46 +1,41 @@
 <div class="container">
+<?php echo validation_errors(); ?>
 
-<div class="columns is-mobile">
-  <div class="column is-three-fifths is-offset-one-fifth">
+<?php echo form_open('admin/register'); ?>
+<div class="row card">
+    <div class="col s12 block">
+        <h3 class="center-align">Register</h3>
+    </div>
+    <div class="input-field col s12">
+        <input name="name" id="first_name" type="text" class="validate">
+        <label for="first_name">First Name</label>
+    </div>
 
-    <?php echo validation_errors(); ?>
+    <div class="row">
+        <div class="input-field col s12">
+            <input name="email" id="email" type="email" class="validate">
+            <label for="email">Email</label>
+        </div>
+    </div>
 
-    <?php echo form_open('admin/register'); ?>
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input name="name" class="input" type="text" placeholder="Name ">
-            </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="password" id="password" type="password" class="validate">
+            <label for="password">Password</label>
         </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input name="email" class="input" type="text" placeholder="Email ....">
-            </div>
+        <div class="input-field col s6">
+            <input name="password2" id="password" type="password" class="validate">
+            <label for="password">Confirm Password</label>
         </div>
-
-        <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-                <input name="password" class="input" type="password" placeholder="Password...">
-            </div>
+    </div>
+    <div class="row">
+        <div class="col s8 offset-s6">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
         </div>
-
-        <div class="field">
-            <label class="label">Confirm Password</label>
-            <div class="control">
-                <input name="password2" class="input" type="password" placeholder="Confirm Password...">
-            </div>
-        </div>
-
-        <div class="field">
-            <div class="control">
-                <button class="button is-link">Submit</button>
-            </div>
-        </div>
-
-    <?php echo form_close(); ?>
+    </div>
 </div>
-</div>
+<?php echo form_close(); ?>
 </div>

@@ -1,44 +1,71 @@
-<?php echo validation_errors(); ?>
+<div class="container">
+    <h3 class="center">Edit a product</h3>
 
-<?php echo form_open('robots/update'); ?>
-    <input type="hidden" name="id" id="id" value="<?php echo $robot['id'];?>">
+    <?php echo validation_errors(); ?>
 
-    <label for="Nama">Nama Robot</label>
-    <input type="text" name="nama" id="nama" value="<?php echo $robot['nama'];?>">
+    <?php echo form_open('robot/update'); ?>
+        <input type="hidden" name="id" id="id" value="<?php echo $robot['id'];?>">
 
-    <br>
-    <label for="brand">Brand</label>
-    <select name="merek" id="">
-        <?php foreach($brands as $brand): ?>
-            <option value="<?php echo $brand['id']; ?>"><?php echo $brand['nama'];?></option>
-        <?php endforeach ?>
-    </select>
+        <div class="row">
+            <div class="input-field col s12">
+                <input name="nama" id="name" type="text" class="validate" value="<?php echo $robot['nama'];?>">
+                <label for="name">Name</label>
+            </div>
 
-    <br>
+            <div class="input-field col s6">
+                <select name="merek">
+                    <option value="" disabled selected>Select product brand</option>
+                        <?php foreach($brands as $brand): ?>
+                            <option value="<?php echo $brand['id']; ?>"><?php echo $brand['nama'];?></option>
+                        <?php endforeach ?>
+                </select>
+                <label>Brand Select</label>
+            </div>
 
-    <label for="usability">Usability</label>
-    <select name="jenis" id="">
-        <?php foreach($usability as $use): ?>
-            <option value="<?php echo $use['id']?>"><?php echo $use['nama']?></option>
-        <?php endforeach ?>
-    </select>
+            <div class="input-field col s6">
+                <select name="jenis">
+                    <option value="" disabled selected>Select product usability</option>
+                        <?php foreach($usability as $use): ?>
+                            <option value="<?php echo $use['id']; ?>"><?php echo $use['nama'];?></option>
+                        <?php endforeach ?>
+                </select>
+                <label>Useablity Select</label>
+            </div>
 
-    <br>
+            <div class="input-field col s6">
+                <input name="harga" id="price" type="text" class="validate" value="<?php echo $robot['harga'];?>">
+                <label for="price">Price</label>
+            </div>
 
-    <label for="Deskripsi">Deskripsi</label>
-    <input type="text" name="deskripsi" id="deskripsi" value="<?php echo $robot['deskripsi'];?>">
+            <div class="input-field col s6">
+                <input name="stok" id="stok" type="text" class="validate" value="<?php echo $robot['stok'];?>">
+                <label for="stok">Stock</label>
+            </div>
+        </div><!-- row -->
 
-    <br>
-    
-    <label for="Gambar">Gambar</label>
-    <input type="text" name="gambar" id="gambar" value="<?php echo $robot['gambar'];?>">
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>File</span>
+                <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input name="gambar" class="file-path validate" type="text" value="<?php echo $robot['gambar'];?>">
+            </div>
+        </div>
+        
+            
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea name="deskripsi" id="deskripsi" class="materialize-textarea"><?php echo $robot['deskripsi'];?></textarea>
+                    <label for="deskripsi">Spesifikasi</label>
+                </div>
+            </div>
 
-    <br>
-    
-    <label for="Stok">Stok</label>
-    <input type="text" name="stok" id="stok" value="<?php echo $robot['stok'];?>">
+            <div class="col s12">
+                <button type="submit" class="waves-effect waves-light btn">Edit</button>
+            </div>
+        </div>
 
-    <br>
-
-    <input type="submit" value="Submit">
-</form>
+    <?php echo form_close();?>
+</div>

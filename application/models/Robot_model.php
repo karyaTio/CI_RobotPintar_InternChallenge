@@ -24,7 +24,8 @@ class Robot_model extends CI_Model {
             'id_admin' => $this->session->userdata('user_id'),
             'deskripsi' => $this->input->post('deskripsi'),
             'gambar' => $this->input->post('gambar'),
-            'stok' => $this->input->post('stok')
+            'stok' => $this->input->post('stok'),
+            'harga' => $this->input->post('harga')
         );
 
         $this->db->insert('robot', $data);

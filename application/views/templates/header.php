@@ -6,105 +6,141 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Robot Pintar</title>
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bulma.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/materialize.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 </head>
 <body>
 
-<nav class=" container navbar is-transparent">
+<!-- ================= NAVBAR ================== -->
+<nav>
+  <div class="nav-wrapper">
+    
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="<?php echo base_url(); ?>">HOME</a></li>
+      <!-- IF THE USER NOT LOGGED IN -->
+      <?php if(!$this->session->userdata('logged_in')): ?>
+        
+        <li><a class="waves-effect waves-light btn" href="<?php echo base_url() . 'admin/register'?>">REGISTER</a></li>
+        <li><a class="waves-effect waves-light btn" href="<?php echo base_url() . 'admin/login'?>">LOGIN</a></li>
+      <?php endif; ?>
 
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-        <a class="navbar-item" href="<?php echo base_url(); ?>">Robot</a>
-    </div>
-
-    <div class="navbar-end">
-      <a class="navbar-item" href="<?php echo base_url(); ?>robot/create">Create a Robot</a>
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <?php if(!$this->session->userdata('logged_in')): ?>
-          <p class="control">
-            <a href="<?php echo base_url();?>admin/register" class="button is-primary">
-              <span>Register</span>
-            </a>
-          </p>
-          
-          <p class="control">
-            <a href="<?php echo base_url();?>admin/login" class="button is-info">
-              <span>Login</span>
-            </a>
-          </p>
-          <?php endif; ?>
-
-          <?php if($this->session->userdata('logged_in')): ?>
-          <p class="control">
-            <a href="<?php echo base_url();?>admin/logout" class="button is-danger">
-              <span>Logout</span>
-            </a>
-          </p>
-          <?php endif; ?>
-
-        </div>
-      </div>
-    </div>
-
+      <!-- IF THE USER LOGGED IN -->
+      <?php if($this->session->userdata('logged_in')): ?>
+        <li><a class="waves-effect waves-light btn" href="<?php echo base_url() . 'admin/logout'?>">LOGOUT</a></li>
+      <?php endif; ?>
+    </ul>
   </div>
 </nav>
 
-<header class="container hero is-info">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Robot Pintar
-      </h1>
-      <h2 class="subtitle">
-        Membantu memudahkan segala pekerjaan rumah, juga menjaga keamanan rumah anda
-      </h2>
-    </div>
+<!-- ================= NOTIFICATION ================== -->
+<?php if($this->session->flashdata('admin_registered')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('admin_registered'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
   </div>
-</header>
-
-<!-- Flash Messages -->
-<div class="container flash-messages">
-
-  <?php if($this->session->flashdata('admin_registered')): ?>
-    <?php echo'<p class="has-background-info has-text-white">'. $this->session->flashdata('admin_registered').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('robot_created')): ?>
-    <?php echo'<p class="has-background-info has-text-white">'. $this->session->flashdata('robot_created').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('robot_updated')): ?>
-    <?php echo'<p class="has-background-info has-text-white">'. $this->session->flashdata('robot_updated').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('robot_deleted')): ?>
-    <?php echo'<p class="has-background-info has-text-white">'. $this->session->flashdata('robot_deleted').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('admin_login_failed')): ?>
-    <?php echo'<p class="has-background-danger has-text-white">'. $this->session->flashdata('admin_login_failed').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('admin_login')): ?>
-    <?php echo'<p class="has-background-primary has-text-white">'. $this->session->flashdata('admin_login').'</p>'; ?>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('admin_logout')): ?>
-    <?php echo'<p class="has-background-info has-text-white">'. $this->session->flashdata('admin_logout').'</p>'; ?>
-  <?php endif; ?>
-  
 </div>
+<?php endif; ?>
 
+<?php if($this->session->flashdata('robot_created')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('robot_created'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('robot_updated')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('robot_updated'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('robot_deleted')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('robot_deleted'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('admin_login_failed')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('admin_login_failed'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('admin_login')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('admin_login'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if($this->session->flashdata('admin_logout')): ?>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Notification</span>
+        <p><?php echo $this->session->flashdata('admin_logout'); ?></p>
+        </div>
+        <div class="card-action">
+          <a href="#">OK </a>
+        </div>
+      </div>
+  </div>
+</div>
+<?php endif; ?>

@@ -1,40 +1,32 @@
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+    </div>
 </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+<script src="<?php echo base_url() . 'assets/js/materialize.min.js'?>"></script>
 
-// Get all "navbar-burger" elements
-var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-// Check if there are any navbar burgers
-if ($navbarBurgers.length > 0) {
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach(function ($el) {
-    $el.addEventListener('click', function () {
-
-      // Get the target from the "data-target" attribute
-      var target = $el.dataset.target;
-      var $target = document.getElementById(target);
-
-      // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-      $el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-
-    });
-  });
-}
-});
-</script>
 </body>
 </html>

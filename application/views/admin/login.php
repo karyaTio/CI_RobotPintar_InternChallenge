@@ -1,44 +1,33 @@
 <div class="container">
-
 <?php echo validation_errors(); ?>
 
-<div class="columns is-mobile">
-  <div class="column is-three-fifths is-offset-one-fifth">
-  
-  
 <?php echo form_open('admin/login'); ?>
-<div class="field">
-  <label class="label">Email</label>
-  <div class="control has-icons-left">
-    <input name="email" class="input" type="email" placeholder="Email... " autofocus>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  </div>
+<div class="row card">
+    <div class="col s12 block">
+        <h3 class="center-align">Register</h3>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <input name="email" id="email" type="email" class="validate" autofocus>
+            <label for="email">Email</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+          <input name="password" id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s8 offset-s6">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                <!-- <i class="material-icons right">send</i> -->
+            </button>
+        </div>
+    </div>
 </div>
-
-<div class="field">
-  <label class="label">Password</label>
-  <div class="control has-icons-left">
-    <input name="password" class="input" type="password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-  </div>
-</div>
-
-<div class="field is-grouped">
-  <div class="control">
-    <button type="submit" class="button is-link">Login</button>
-  </div>
-  <div class="control">
-    <a href="<?php echo base_url();?>admin/register" class="button is-text">Register</a>
-  </div>
-</div>
-<? echo form_close(); ?>
-
-
-
-  </div>
-</div>
+<?php echo form_close(); ?>
 </div>

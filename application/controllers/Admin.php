@@ -74,7 +74,7 @@ class Admin extends CI_Controller {
                 // Create the session
                 $this->session->set_flashdata('admin_login', 'You are now log in');
 
-                redirect('robot');
+                redirect('dashboard/overview');
             }else{
                 $this->session->set_flashdata('admin_login_failed', 'Login is invalid');
 
