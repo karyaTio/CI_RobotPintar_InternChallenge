@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
 
         $this->session->set_flashdata('admin_logout', 'You are now log out');
 
-        redirect('admin/login');
+        redirect('');
     }
 
     function check_email_exists($email){

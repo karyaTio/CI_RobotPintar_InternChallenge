@@ -2,7 +2,7 @@
 class Transaction_model extends CI_Model {
 
     function transaction_list(){
-        $hasil = $this->db->get('daftar_robot');
+        $hasil = $this->db->get('transaction_data');
         return $hasil->result_array();
     }
 

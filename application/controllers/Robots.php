@@ -18,7 +18,7 @@ class Robots extends CI_Controller {
 
     function show($id){
 
-        $data['robot'] = $this->robot_model->get_robot($id);
+        $data['robot'] = $this->robot_model->get_robot_detail($id);
 
         $this->load->view('templates/header');
         $this->load->view('robots/show', $data);

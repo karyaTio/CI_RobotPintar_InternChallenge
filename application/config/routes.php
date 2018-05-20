@@ -23,6 +23,7 @@ $route['dashboard/product'] = 'robots/manage';
 $route['dashboard/data'] = 'transaction/index';
 $route['dashboard/brand'] = 'brand/index';
 $route['dashboard/usability'] = 'usability/index';
+$route['dashboard/user'] = 'users/index';
 
 // Admin
 $route['admin/data'] = 'admin/data';

@@ -79,15 +79,31 @@ FROM robot
 INNER JOIN jenis ON robot.`id_jenis` = jenis.`id`
 INNER JOIN merek ON robot.`id_merek` = merek.`id`;
 
+DROP VIEW IF EXISTS `user_list`;
+CREATE VIEW user_list AS
+SELECT 	pembeli.`nama`,
+	pembeli.`email`,
+	MAX(tr.`tgl_transaksi`) 'lastBuy',
+	COUNT(tr.`id_pembeli`) AS 'totalTR',
+	tr.`jumlah` * robot.`harga` AS 'spend'
+FROM transaksi_pembelian AS tr
+INNER JOIN pembeli ON tr.`id_pembeli` = pembeli.`id`
+INNER JOIN robot ON tr.`id_robot` = robot.`id`
+GROUP BY pembeli.`id`
+ORDER BY pembeli.`nama`;
+
 DROP VIEW IF EXISTS `transaction_data`;
 CREATE VIEW transaction_data AS
 SELECT 	robot.`nama`,
+	pembeli.`nama`  AS 'pembeli',
 	tr.tgl_transaksi AS 'tgl',
 	robot.`harga`,
 	tr.jumlah AS 'qty',
 	tr.jumlah * robot.`harga` AS 'total'
 FROM transaksi_pembelian AS tr
-INNER JOIN robot ON tr.`id_robot` = robot.`id`;
+INNER JOIN robot ON tr.`id_robot` = robot.`id`
+INNER JOIN pembeli ON tr.`id_pembeli` = pembeli.`id`
+ORDER BY tr.tgl_transaksi DESC;
 
 DROP VIEW IF EXISTS `top_sales`;
 CREATE VIEW `top_sales`  AS
@@ -108,7 +124,7 @@ CREATE PROCEDURE `db_robotpintar`.`get_monthly_profit`(target_month INT)
 	END$$
 DELIMITER ;
 
-/* ======================== INSERT BASE DATA ======================== */
+/* ======================== INSERT STARTING DATA ======================== */
 INSERT INTO merek VALUES(1, 'Motoman');
 INSERT INTO merek VALUES(2, 'ABB');
 INSERT INTO merek VALUES(3, 'Kawasaki');
@@ -143,3 +159,16 @@ INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, g
 	VALUES(2, 2, 1, 'Makeblock mBot v1.1 Blue STEM Educational Programmable Robot (Bluetooth)', 'Comes with bluetooth', 0, 550, 'out-of-stock.jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
 	VALUES(4, 2, 1, 'The MostUseless Machine Kit', 'Well its useless anyway', 0, 150, 'out-of-stock.jpg');
+	
+INSERT INTO pembeli(email, sandi, nama) VALUES ('pembeli@gmail.com', '123', 'pembeli1');
+INSERT INTO pembeli(email, sandi, nama) VALUES ('pembeli@gmail.com', '123', 'pembeli2');
+INSERT INTO pembeli(email, sandi, nama) VALUES ('pembeli@gmail.com', '123', 'pembeli3');
+
+INSERT INTO transaksi_pembelian(id_robot, id_pembeli, tgl_transaksi, jumlah) 
+	VALUES (1, 1, '2018-01-01', 12);
+INSERT INTO transaksi_pembelian(id_robot, id_pembeli, tgl_transaksi, jumlah) 
+	VALUES (2, 2, '2018-05-01', 4);
+INSERT INTO transaksi_pembelian(id_robot, id_pembeli, tgl_transaksi, jumlah) 
+	VALUES (3, 3, '2018-05-01', 11);
+INSERT INTO transaksi_pembelian(id_robot, id_pembeli, tgl_transaksi, jumlah) 
+	VALUES (1, 1, NOW(), 12);

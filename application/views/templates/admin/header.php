@@ -30,7 +30,7 @@
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Product<i class="material-icons right">arrow_drop_down</i></a></li>
 
       <li><a class="navbar-item" href="<?php echo base_url(); ?>dashboard/data">Data</a></li>
-      <li><a class="navbar-item" href="<?php echo base_url(); ?>dashboard/user/manage">User</a></li>
+      <li><a class="navbar-item" href="<?php echo base_url(); ?>dashboard/user">User</a></li>
 
       <!-- IF THE USER NOT LOGGED IN -->
       <?php if(!$this->session->userdata('logged_in')): ?>

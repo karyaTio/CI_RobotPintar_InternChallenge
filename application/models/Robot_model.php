@@ -16,6 +16,11 @@ class Robot_model extends CI_Model {
         return $hasil->row_array();
     }
 
+    function get_robot_detail($id){
+        $hasil = $this->db->get_where('daftar_robot', array('id' => $id));
+        return $hasil->row_array();
+    }
+
     function robot_create(){
         $data = array(
             'nama' => $this->input->post('nama'),
