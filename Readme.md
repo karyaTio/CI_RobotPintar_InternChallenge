@@ -1,8 +1,13 @@
 # How to view this website
 1. Download Codeigniter
 2. Simply download and copy these file into the root of codeigniter
-3. run databasescript.sql in your query tab
-3. access the website on localhost/robotpintar.com
+3. Rename the folder file to robotpintar.com
+4. run databasescript.sql in your query tab
+5. access the website on localhost/robotpintar.com
+
+## or you can download it from this link
+https://drive.google.com/file/d/1EhsRW0P0Gw8ZU7SgMcMOIicujOejCLR6/view?usp=sharing
+### Note that downloading project from this link will not always up-to-date
 
 # Available feature
 - Authentication
