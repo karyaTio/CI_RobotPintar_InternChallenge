@@ -3,7 +3,7 @@
 
     <?php echo validation_errors(); ?>
 
-    <?php echo form_open('robot/create'); ?>
+    <?php echo form_open_multipart('robot/create'); ?>
         <div class="row">
             <div class="input-field col s12">
                 <input name="nama" id="name" type="text" class="validate">
@@ -44,13 +44,12 @@
         <div class="file-field input-field">
             <div class="btn">
                 <span>File</span>
-                <input type="file">
+                <input name="userfile" type="file">
             </div>
             <div class="file-path-wrapper">
-                <input name="gambar" class="file-path validate" type="text">
+                <input class="file-path validate" type="text">
             </div>
         </div>
-        
             
         <div class="row">
             <div class="row">

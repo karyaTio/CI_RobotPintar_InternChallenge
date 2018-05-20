@@ -8,11 +8,19 @@
 - Authentication
 - We now must login first as admin to create, update, delete a robot
 - Admin can now create, update, and delete a product from admin panel
+- Admin can now upload image to robots
 - Admin can do Brand in admin panel
 
 # Note From Developer
 - a data robot that has been inside the transaction table cannot be deleted
 - if you want to test CRUD on robot its better to create robot first
+
+# Bugs
+- Robot card view is broken when the screen get smaller (Consider creating custom CSS for it)
+- When trying to edit the robot the current brand, and usablity is not automatically selected
+- Price sometime change to 999.99
+- Navigation gone when on tablet view down
+- Cannot edit image of robot if ediited then the original image is lost(but we can upload image on create)
 
 # Todo
 - [ ] Learning Ajax
@@ -33,11 +41,11 @@
 - [ ] Adding User to the project
 - [ ] User can buy a robot
 - [ ] Upgrade session flash data into pop up view like
-- [ ] Can upload images in robot
+- [x] Can upload images in robot
 - [ ] when showing robot if we hover the image pop up the image in larger version
-- [ ] Make the script more readable
+- [x] Make the script more readable
 - [ ] Convert the language to english only
-- [ ] Converting CSS framework from Bulma to Materialize
+- [x] Converting CSS framework from Bulma to Materialize
 - [ ] use only 1 footer
 - [ ] Responsive for different device
 
@@ -45,12 +53,6 @@
 - [ ] create a trigger to reduce the number of stock when a user buy product
 - [ ] converting database to english language only
 
-
-# Bugs
-- Robot card view is broken when the screen get smaller (Consider creating custom CSS for it)
-- When trying to edit the robot the current brand, and usablity is not automatically selected
-- Price sometime change to 999.99
-- Navigation gone when on tablet view down
 
 # Learning objective for this project
 - [x] Html, CSS, PHP, Javascript

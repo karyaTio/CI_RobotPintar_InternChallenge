@@ -77,7 +77,8 @@ SELECT 	robot.`id`,
 	merek.`nama` AS 'merek'
 FROM robot
 INNER JOIN jenis ON robot.`id_jenis` = jenis.`id`
-INNER JOIN merek ON robot.`id_merek` = merek.`id`;
+INNER JOIN merek ON robot.`id_merek` = merek.`id`
+ORDER BY robot.`id` DESC;
 
 DROP VIEW IF EXISTS `user_list`;
 CREATE VIEW user_list AS
@@ -142,23 +143,23 @@ INSERT INTO jenis VALUES(6, 'RobotShop App Store');
 INSERT INTO admin VALUES(1, 'karya.tiosaputra@gmail.com', MD5('123'), 'Tio Saputra');
 
 INSERT INTO robot(id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(1, 1, 1, 'Arduino Mega 2560 Microcontroller Rev3', 'User friendly USB programmable', 15, 499, 'arduino.jpg');
+	VALUES(1, 1, 1, 'Arduino Mega 2560 Microcontroller Rev3', 'User friendly USB programmable', 15, 499, 'robots (1).jpg');
 INSERT INTO robot(id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar)
-	VALUES(2, 1, 1, '400 Tie Point Interlocking Solderless Breadboard', 'Need no solder', 30, 130, 'tiepoint.jpg');
+	VALUES(2, 1, 1, '400 Tie Point Interlocking Solderless Breadboard', 'Need no solder', 30, 130, 'robots (2).jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(3, 2, 1, 'Litter-Robot III Open Air Automatic Self-Cleaning Litter Box', '', 15, 350, 'litter-robot.jpg');
+	VALUES(3, 2, 1, 'Litter-Robot III Open Air Automatic Self-Cleaning Litter Box', '', 15, 350, 'robots (3).jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(4, 2, 1, 'iRobot Roomba 880 Vacuum Cleaning Robot', 'Robot to clean house floor', 10, 350, 'floor.jpg');
+	VALUES(4, 2, 1, 'iRobot Roomba 880 Vacuum Cleaning Robot', 'Robot to clean house floor', 10, 350, 'robots (4).jpg');
 	
 /* OUT OF STOCK PRODUCT */
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(3, 2, 1, 'Ageless Innovations Tabby Cat Interactive Companion', 'A Cute cat robot', 0, 350, 'out-of-stock.jpg');
+	VALUES(3, 2, 1, 'Ageless Innovations Tabby Cat Interactive Companion', 'A Cute cat robot', 0, 350, 'robots (5).jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(4, 2, 1, 'Ozobot Bit 2.0 Interactive Robot Dual Set', 'Robot to safeguard your house', 0, 250, 'out-of-stock.jpg');
+	VALUES(4, 2, 1, 'Ozobot Bit 2.0 Interactive Robot Dual Set', 'Robot to safeguard your house', 0, 250, 'robots (6).jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(2, 2, 1, 'Makeblock mBot v1.1 Blue STEM Educational Programmable Robot (Bluetooth)', 'Comes with bluetooth', 0, 550, 'out-of-stock.jpg');
+	VALUES(2, 2, 1, 'Makeblock mBot v1.1 Blue STEM Educational Programmable Robot (Bluetooth)', 'Comes with bluetooth', 0, 550, 'robots (7).jpg');
 INSERT INTO robot (id_merek, id_jenis, id_admin, nama, deskripsi, stok, harga, gambar) 
-	VALUES(4, 2, 1, 'The MostUseless Machine Kit', 'Well its useless anyway', 0, 150, 'out-of-stock.jpg');
+	VALUES(4, 2, 1, 'The MostUseless Machine Kit', 'Well its useless anyway', 0, 150, 'robots (8).jpg');
 	
 INSERT INTO pembeli(email, sandi, nama) VALUES ('pembeli@gmail.com', '123', 'pembeli1');
 INSERT INTO pembeli(email, sandi, nama) VALUES ('pembeli@gmail.com', '123', 'pembeli2');

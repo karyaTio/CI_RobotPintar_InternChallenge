@@ -7,6 +7,16 @@ class Robots extends CI_Controller {
         $this->load->model('robot_model');
     }
 
+    
+    function dashboard(){
+
+        $data['robots'] = $this->robot_model->robot_list();
+
+        $this->load->view('templates/admin/header');
+        $this->load->view('robots/index', $data);
+        $this->load->view('templates/admin/footer');
+    }
+
     function index(){
 
         $data['robots'] = $this->robot_model->robot_list();
@@ -41,7 +51,6 @@ class Robots extends CI_Controller {
         $this->form_validation->set_rules("jenis", "Usability", "required");
         $this->form_validation->set_rules("harga", "Price", "required");
         $this->form_validation->set_rules("deskripsi", "Specs", "required");
-        $this->form_validation->set_rules("gambar", "Image", "required");
         $this->form_validation->set_rules("stok", "Stock", "required");
 
         if($this->form_validation->run() == FALSE){
@@ -49,7 +58,24 @@ class Robots extends CI_Controller {
             $this->load->view('robots/create', $data);
             $this->load->view('templates/admin/footer');
         }else{
-            $this->robot_model->robot_create();
+            // Upload image
+            $config['upload_path'] = './assets/images/robots';
+            $config['allowed_types'] = 'gif|png|jpg|png';
+            $config['max_size'] = 100;
+            $config['max_width'] = 1024;
+            $config['max_height'] = 768;
+
+            $this->load->library('upload', $config);
+
+            if ( !$this->upload->do_upload('userfile')){
+                $errors = array('error' => $this->upload->display_errors());
+                $robot_image = 'noimage.jpg';
+            }else{
+                $data = array('upload_data' => $this->upload->data);
+                $robot_image = $_FILES['userfile']['name'];
+            }
+
+            $this->robot_model->robot_create($robot_image);
 
             $this->session->set_flashdata('robot_created', 'Robot succesffuly created');
 
@@ -64,17 +90,17 @@ class Robots extends CI_Controller {
             redirect('admin/login');
         }
 
-        $data['robot'] = $this->robot_model->get_robot($id);
-        $data['brands'] = $this->robot_model->get_brand();
-        $data['usability'] = $this->robot_model->get_usability();
-
         $this->form_validation->set_rules("nama", "Nama", "required");
         $this->form_validation->set_rules("merek", "merek", "required");
         $this->form_validation->set_rules("jenis", "jenis", "required");
         $this->form_validation->set_rules("deskripsi", "deskripsi", "required");
-        $this->form_validation->set_rules("gambar", "gambar", "required");
         $this->form_validation->set_rules("stok", "stok", "required");
         $this->form_validation->set_rules("harga", "Price", "required");
+
+        $data['robot'] = $this->robot_model->get_robot($id);
+        $data['brands'] = $this->robot_model->get_brand();
+        $data['usability'] = $this->robot_model->get_usability();
+
 
         $this->load->view('templates/admin/header');
         $this->load->view('robots/edit', $data);
@@ -88,7 +114,24 @@ class Robots extends CI_Controller {
             redirect('admin/login');
         }
 
-        $this->robot_model->update_robot();
+        // Upload image
+        $config['upload_path'] = './assets/images/robots';
+        $config['allowed_types'] = 'gif|png|jpg|png';
+        $config['max_size'] = 100;
+        $config['max_width'] = 1024;
+        $config['max_height'] = 768;
+
+        $this->load->library('upload', $config);
+
+        if ( !$this->upload->do_upload('userfile')){
+            $errors = array('error' => $this->upload->display_errors());
+            $robot_image = 'noimage.jpg';
+        }else{
+            $data = array('upload_data' => $this->upload->data);
+            $robot_image = $_FILES['userfile']['name'];
+        }
+
+        $this->robot_model->update_robot($robot_image);
 
         $this->session->set_flashdata('robot_updated', 'Robot succesffuly updated');
 

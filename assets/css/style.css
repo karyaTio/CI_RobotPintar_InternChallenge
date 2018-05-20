@@ -17,3 +17,10 @@
 .overview3 {
     color: red;
 }
+
+.robot-image{
+    height: 200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}

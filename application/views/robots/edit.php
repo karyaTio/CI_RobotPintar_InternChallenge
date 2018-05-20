@@ -53,16 +53,21 @@
             </div>
         </div><!-- row -->
 
-        <div class="file-field input-field">
-            <div class="btn">
-                <span>File</span>
-                <input type="file">
+        <div class="row">
+            <div class="col s4">
+            <img class="robot-image" src="<?php echo site_url() . 'assets/images/robots/' . $robot['gambar']; ?>" alt="Placeholder image">
+                hallo
             </div>
-            <div class="file-path-wrapper">
-                <input name="gambar" class="file-path validate" type="text" value="<?php echo $robot['gambar'];?>">
+            <div class="file-field input-field col s8">
+                <div class="btn">
+                    <span>File</span>
+                    <input name="userfile" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
             </div>
         </div>
-        
             
         <div class="row">
             <div class="row">

@@ -5,7 +5,7 @@
         </div>
 
         <div class="col s5">
-            <p><?php echo $robot['gambar']; ?></p>
+            <img class="materialboxed" src="<?php echo site_url() . 'assets/images/robots/'. $robot['gambar']; ?>" alt="">
         </div>
 
         <div class="col s7">

@@ -32,6 +32,7 @@
     $('select').formSelect();
     $('.modal').modal();
     $(".dropdown-trigger").dropdown();
+    $('.materialboxed').materialbox();
   });
 </script>
 

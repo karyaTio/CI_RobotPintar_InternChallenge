@@ -24,7 +24,7 @@
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-
+      <li><a class="navbar-item" href="<?php echo base_url(). 'dashboard/home' ?>">Home</a></li>
       <li><a class="navbar-item" href="<?php echo base_url(); ?>dashboard/overview">Overview</a></li>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Product<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -47,12 +47,10 @@
 </nav>
 
 <!-- ================= NOTIFICATION ================== -->
-
-<!-- ================= NOTIFICATION ================== -->
 <div class="container">
 <?php if($this->session->flashdata('admin_registered')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -68,7 +66,7 @@
 
 <?php if($this->session->flashdata('robot_created')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -84,7 +82,7 @@
 
 <?php if($this->session->flashdata('robot_updated')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -100,7 +98,7 @@
 
 <?php if($this->session->flashdata('robot_deleted')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -116,7 +114,7 @@
 
 <?php if($this->session->flashdata('admin_login_failed')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card red darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -132,7 +130,7 @@
 
 <?php if($this->session->flashdata('admin_login')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card green darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>
@@ -148,7 +146,7 @@
 
 <?php if($this->session->flashdata('admin_logout')): ?>
 <div class="row">
-  <div class="col s12 m6">
+  <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">Notification</span>

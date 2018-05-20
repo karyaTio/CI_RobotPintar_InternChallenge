@@ -21,14 +21,14 @@ class Robot_model extends CI_Model {
         return $hasil->row_array();
     }
 
-    function robot_create(){
+    function robot_create($robot_image){
         $data = array(
             'nama' => $this->input->post('nama'),
             'id_merek' => $this->input->post('merek'),
             'id_jenis' => $this->input->post('jenis'),
             'id_admin' => $this->session->userdata('user_id'),
             'deskripsi' => $this->input->post('deskripsi'),
-            'gambar' => $this->input->post('gambar'),
+            'gambar' => $robot_image,
             'stok' => $this->input->post('stok'),
             'harga' => $this->input->post('harga')
         );
@@ -36,13 +36,13 @@ class Robot_model extends CI_Model {
         $this->db->insert('robot', $data);
     }
 
-    function update_robot(){
+    function update_robot($robot_image){
         $data = array(
             'nama' => $this->input->post('nama'),
             'id_merek' => $this->input->post('merek'),
             'id_jenis' => $this->input->post('jenis'),
             'deskripsi' => $this->input->post('deskripsi'),
-            'gambar' => $this->input->post('gambar'),
+            'gambar' => $robot_image,
             'stok' => $this->input->post('stok'),
             'harga' => $this->input->post('harga')
         );
