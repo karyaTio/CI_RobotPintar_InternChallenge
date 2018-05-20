@@ -1,6 +1,11 @@
 <?php
 class Transaction_model extends CI_Model {
 
+    function transaction_list(){
+        $hasil = $this->db->get('daftar_robot');
+        return $hasil->result_array();
+    }
+
     function get_top_sale(){
         $this->db->limit(1);
         $query = $this->db->get('top_sales');

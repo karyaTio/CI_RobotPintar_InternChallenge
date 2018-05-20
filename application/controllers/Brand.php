@@ -14,9 +14,9 @@ class Brand extends CI_Controller {
 
         $data['brands'] = $this->brand_model->brand_list();
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/admin/header');
         $this->load->view('brand/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/admin/footer');
     }
 
     function create(){
@@ -29,12 +29,12 @@ class Brand extends CI_Controller {
         $this->form_validation->set_rules("nama", "Name", "required");
 
         if($this->form_validation->run() == FALSE){
-            $this->load->view('templates/header');
-            $this->load->view('brand/create');
-            $this->load->view('templates/footer');
+            $this->load->view('templates/admin/header');
+            $this->load->view('brand/index');
+            $this->load->view('templates/admin/footer');
         }else{
             $this->brand_model->save_brand();
-            redirect('brand');
+            redirect('dashboard/brand');
         }
     }
 }

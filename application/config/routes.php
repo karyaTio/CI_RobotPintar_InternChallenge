@@ -20,6 +20,9 @@ $route['brand/create'] = 'brand/create';
 // Dashboard
 $route['dashboard/overview'] = 'admin/overview';
 $route['dashboard/product'] = 'robots/manage';
+$route['dashboard/data'] = 'transaction/index';
+$route['dashboard/brand'] = 'brand/index';
+$route['dashboard/usability'] = 'usability/index';
 
 // Admin
 $route['admin/data'] = 'admin/data';

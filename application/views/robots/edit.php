@@ -16,7 +16,13 @@
                 <select name="merek">
                     <option value="" disabled selected>Select product brand</option>
                         <?php foreach($brands as $brand): ?>
-                            <option value="<?php echo $brand['id']; ?>"><?php echo $brand['nama'];?></option>
+                            <option value="<?php echo $brand['id']; ?>"
+                                <?php if($robot['id_merek'] == $brand['id']): ?>
+                                    selected="selected"
+                                <?php endif; ?>
+                            >
+                            <?php echo $brand['nama'];?>
+                            </option>
                         <?php endforeach ?>
                 </select>
                 <label>Brand Select</label>
@@ -26,7 +32,11 @@
                 <select name="jenis">
                     <option value="" disabled selected>Select product usability</option>
                         <?php foreach($usability as $use): ?>
-                            <option value="<?php echo $use['id']; ?>"><?php echo $use['nama'];?></option>
+                            <option value="<?php echo $use['id']; ?>"
+                                <?php if($robot['id_jenis'] == $use['id']): ?>
+                                    selected="selected"
+                                <?php endif; ?>
+                            ><?php echo $use['nama'];?></option>
                         <?php endforeach ?>
                 </select>
                 <label>Useablity Select</label>

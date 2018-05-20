@@ -27,15 +27,11 @@
 <script src="<?php echo base_url(). 'assets/js/jquery-3.2.1.js';?>"></script>
 <script src="<?php echo base_url() . 'assets/js/materialize.min.js';?>"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
-
-  // Or with jQuery
 
   $(document).ready(function(){
     $('select').formSelect();
+    $('.modal').modal();
+    $(".dropdown-trigger").dropdown();
   });
 </script>
 

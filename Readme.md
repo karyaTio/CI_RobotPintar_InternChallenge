@@ -1,7 +1,14 @@
-# Avilable feature
+# How to view this website
+1. Download Codeigniter
+2. Simply download and copy these file into the root of codeigniter
+
+# Available feature
 - Authentication
 - We now must login first as admin to create, update, delete a robot
 - Admin can now create, update, and delete a product from admin panel
+
+# Note From Developer
+- a data robot that has been inside the transaction table cannot be deleted
 
 # Todo
 - [ ] Beautify the Front End
@@ -24,7 +31,11 @@
 - [ ] Make the script more readable
 - [ ] Convert the language to english only
 - [ ] Converting CSS framework from Bulma to Materialize
+- [ ] use only 1 footer
+- [ ] Ajax
+- [ ] Adding search & filter feature
 
 # Bugs
 - Robot card view is broken when the screen get smaller (Consider creating custom CSS for it)
 - When trying to edit the robot the current brand, and usablity is not automatically selected
+- Price sometime change to 999.99

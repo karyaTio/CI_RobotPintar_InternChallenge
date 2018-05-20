@@ -28,5 +28,15 @@
 
 <script src="<?php echo base_url() . 'assets/js/materialize.min.js'?>"></script>
 
+<script>
+
+$(document).ready(function(){
+  $('select').formSelect();
+  $(".dropdown-trigger").dropdown();
+  $('.modal').modal();
+});
+</script>
+
+
 </body>
 </html>

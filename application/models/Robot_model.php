@@ -12,7 +12,7 @@ class Robot_model extends CI_Model {
     }
 
     function get_robot($id){
-        $hasil = $this->db->get_where('daftar_robot', array('id' => $id));
+        $hasil = $this->db->get_where('robot', array('id' => $id));
         return $hasil->row_array();
     }
 
@@ -38,7 +38,8 @@ class Robot_model extends CI_Model {
             'id_jenis' => $this->input->post('jenis'),
             'deskripsi' => $this->input->post('deskripsi'),
             'gambar' => $this->input->post('gambar'),
-            'stok' => $this->input->post('stok')
+            'stok' => $this->input->post('stok'),
+            'harga' => $this->input->post('harga')
         );
 
         $this->db->where('id', $this->input->post('id'));
